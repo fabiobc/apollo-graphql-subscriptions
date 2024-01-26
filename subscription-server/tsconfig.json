@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "target": "ES2020",
+    "module": "commonjs",
+    "allowJs": true,
+    "declaration": true /* Generates corresponding '.d.ts' file. */,
+    "sourceMap": true /* Generates corresponding '.map' file. */,
+    "removeComments": true /* Do not emit comments to output. */,
+    "importHelpers": true /* Import emit helpers from 'tslib'. */,
+    "downlevelIteration": true /* Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'. */,
+
+    /* Strict Type-Checking Options */
+    "strict": true /* Enable all strict type-checking options. */,
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    "strictNullChecks": true /* Enable strict null checks. */,
+    "strictFunctionTypes": true /* Enable strict checking of function types. */,
+    "strictBindCallApply": true /* Enable strict 'bind', 'call', and 'apply' methods on functions. */,
+    "strictPropertyInitialization": false /* Enable strict checking of property initialization in classes. */,
+    "noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
+    "alwaysStrict": true /* Parse in strict mode and emit "use strict" for each source file. */,
+    "useUnknownInCatchVariables": false,
+
+    /* Additional Checks */
+    "noFallthroughCasesInSwitch": false /* Report errors for fallthrough cases in switch statement. */,
+    "noPropertyAccessFromIndexSignature": false /* Require undeclared properties from index signatures to use element accesses. */,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
+
+    /* Experimental Options */
+    "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+    "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
+
+    /* Advanced Options */
+    "skipLibCheck": true /* Skip type checking of declaration files. */,
+    "forceConsistentCasingInFileNames": false /* Disallow inconsistently-cased references to the same file. */
+
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "paths": {
+      "#src/*": ["src/*"],
+    },
+    "lib": ["ES2021.String"]
+  },
+  "ts-node": {
+    "esm": true /* Enabling ESM for ts-node */
+  }
+}

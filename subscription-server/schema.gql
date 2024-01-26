@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Link {
+  id: Int!
+  voteCount: Int!
+}
+
+type Query {
+  link(linkId: Int!): Link!
+}
+
+type Mutation {
+  createLink(linkId: Int!): Link!
+  voteLink(linkId: Int!): Link!
+}
+
+type Subscription {
+  allVotesReceived: Link!
+  voteReceived(linkId: Int!): Link!
+}
