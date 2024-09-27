@@ -16,11 +16,15 @@ import { split } from '@apollo/client/link/core';
 // have a function to create a client for you
 function makeClient() {
   const wsLink = new GraphQLWsLink(createClient({
-    url: 'ws://localhost:4356/subscriptions',
+    url: 'wss://<base core api URL>/subscription',
+    connectionParams: {
+      authorization: '<ID token>',
+      'x-profile-id': '<Profile id matching the id token>',
+    },
   }));
 
   const httpLink = new HttpLink({
-    uri: 'http://localhost:4356/graphql'
+    uri: 'https://<base core api URL>/graphql',
   });
 
 
