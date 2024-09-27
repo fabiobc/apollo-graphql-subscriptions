@@ -1,61 +1,35 @@
 "use client";
 
 import { gql, useSubscription } from '@apollo/client';
-import { useState } from 'react';
 
 
 // Define mutation
 
 const SUBSCRIBE_TO_LINK = gql`
     subscription WhoLikesMeLiveUpdates {
-        profile: whoLikesMeLiveUpdates(profileId: "<Not your profile ID>") {
-            age
-            ageRange
-            allowPWM
-            analyticsId
-            bio
-            completionStatus
-            dateOfBirth
-            desires
-            desiringFor
-            distanceMax
-            gender
+        whoLikesMeLiveUpdates(profileId: "<profile ID>") {
             id
-            imaginaryName
-            interests
-            invalidPhotosCount
-            isIncognito
-            isMajestic
-            isMinor
-            isUplift
-            isVerified
-            lastSeen
-            location {
-                __typename
-            }
-            lookingFor
-            pairCount
-            recentlyOnline
-            sexuality
-            status
-            streamToken
-            streamUserId
-            upliftExpirationTimestamp
         }
     }
 `;
-
+let acc = []
 export function SubscribeToLinkComponent() {
-  const [receivedData, setReceivedData] = useState("");
   // Pass mutation to useMutation
   const { data, loading, error} = useSubscription(SUBSCRIBE_TO_LINK);
 
   if (loading) return 'Waiting for info...';
 
+  if (data) {
+    acc.push(data)
+  }
+  const listItems = acc.map(data =>
+    <li>{`Received data: ${JSON.stringify(data)}`}</li>
+  );
+
   return (
     <div>
-      {data &&
-        <h2>{`Received data: ${setReceivedData(receivedData + JSON.stringify(data)) && receivedData}`}</h2>
+      {acc.length &&
+        <ul>{listItems}</ul>
       }
       {
         error &&
